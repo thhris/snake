@@ -2,40 +2,42 @@ import java.util.LinkedList;
 
 public class Snake {
 
-  private Head head;
-
-  public LinkedList<Body> bodies;
-
-  public boolean dead;
-
-  public char directionOfHead() {
-  return 0;
-  }
-
-  public boolean isAlive() {
-  return false;
-  }
-
-  public boolean hasCollided() {
-  return false;
-  }
+    private Head head;
+    private Body body;
+    public LinkedList<Body> bodies;
 
   public Snake() {
-    head = new Head();
-    // add code for bodies
+    Coordinate coor = new Coordinate(10, 10);
+    head = new Head(coor);
+    body = new Body(head);
+    bodies.add(body);
   }
 
-  public void addBody() {
-  }
+    public char directionOfHead() {
+        return 0;
+    }
 
-  public void destroy() {
-  }
+    public boolean isAlive() {
+        if (hasCollided() == true) {
+            return false;
+        } else
+            return true;
+    }
 
-  public int lengthOfBody() {
-  return 0;
-  }
+    public boolean hasCollided() {
+        for (Body body : bodies) {
+            if (head.position == body.position) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-  public void kill() {
-  }
+    public void addBody() {
+        bodies.add(body);
+    }
 
+    public int lengthOfBody() {
+        return bodies.size();
+    }
 }

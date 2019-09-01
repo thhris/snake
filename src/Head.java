@@ -3,16 +3,17 @@ import java.util.Vector;
 
 public class Head extends SnakePart {
 
-  public char direction;
+  //Create starting position for head of snake
+  public Head(Coordinate startPosition) {
+    position = startPosition;
+    setColour(Color.RED);
 
-  public Color colour;
-
-    public Vector  mySnake;
-
-  public void setColour() {
   }
 
-  public Head() {
+  public char direction;
+
+  public void setColour(Color col) {
+    colour = col;
   }
 
 }

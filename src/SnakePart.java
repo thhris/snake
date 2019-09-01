@@ -7,10 +7,9 @@ public abstract class SnakePart {
 
   public Coordinate position;
 
-    public Vector  myTile;
-
-  public Coordinate positionOfPart() {
-  return null;
+  public Coordinate position() {
+    Coordinate coords = new Coordinate(10,10);
+  return coords;
   }
 
   public SnakePart() {

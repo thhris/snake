@@ -41,7 +41,7 @@ public class Main extends View {
         resetBut.setFocusPainted(false);
         resetBut.setForeground(Color.WHITE);
 
-        final View game = new View(); //create an instance of Tetris
+        final View game = new View();
         frame.add(game);
         game.init();
 
