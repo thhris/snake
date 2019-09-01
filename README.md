@@ -1,2 +1,2 @@
 # snake
-Snake game
+View game

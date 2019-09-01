@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Main extends Snake {
+public class Main extends View {
 
     public static void main(String[] args) {
 
@@ -41,7 +41,7 @@ public class Main extends Snake {
         resetBut.setFocusPainted(false);
         resetBut.setForeground(Color.WHITE);
 
-        final Snake game = new Snake(); //create an instance of Tetris
+        final View game = new View(); //create an instance of Tetris
         frame.add(game);
         game.init();
 
