@@ -1,17 +1,17 @@
 import java.awt.*;
-import java.util.Vector;
 
-public class Point {
-
-  public Color colour;
-
-
-    public Vector  myTile;
-
-  public void destroy() {
-  }
+public class Point extends GameObject{
 
   public Point() {
+    setColour(Color.YELLOW);
+  }
+
+  private void setColour(Color colour){
+    this.colour = colour;
+  }
+
+  public void destroy() {
+
   }
 
 }

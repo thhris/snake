@@ -1,11 +1,10 @@
 import java.awt.*;
-import java.util.Vector;
 
 public class Body extends SnakePart {
 
     public Body(Head head) {
         position = head.position;
-        setColour(Color.BLACK);
+        setColour(Color.BLUE);
     }
 
     public void setColour(Color col) {

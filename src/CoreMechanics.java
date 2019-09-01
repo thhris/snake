@@ -1,5 +1,3 @@
-import java.util.Vector;
-
 public class CoreMechanics {
 
   public static Board board;
@@ -9,7 +7,7 @@ public class CoreMechanics {
   public void initialiseGame() {
     board = Board.getInstance();
     board.initialiseTiles();
-    board.updateBoard();
+
   }
 
   public void sendBoard(){
@@ -23,10 +21,6 @@ public class CoreMechanics {
   }
 
   public void gameOver() {
-  }
-
-  public static Board getBoard() {
-    return board;
   }
 
   public void pauseGame() {

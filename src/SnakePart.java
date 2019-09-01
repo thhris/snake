@@ -1,18 +1,17 @@
 import java.awt.*;
-import java.util.Vector;
 
-public abstract class SnakePart {
+public abstract class SnakePart extends GameObject {
 
-  public Color colour;
+    public Color colour;
 
-  public Coordinate position;
+    public Coordinate position;
 
-  public Coordinate position() {
-    Coordinate coords = new Coordinate(10,10);
-  return coords;
-  }
+    public Coordinate position() {
+        Coordinate coords = new Coordinate(10, 10);
+        return coords;
+    }
 
-  public SnakePart() {
-  }
+    public SnakePart() {
+    }
 
 }

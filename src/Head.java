@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.util.Vector;
 
 public class Head extends SnakePart {
 

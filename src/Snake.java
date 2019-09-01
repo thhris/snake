@@ -6,12 +6,12 @@ public class Snake {
     private Body body;
     public LinkedList<Body> bodies;
 
-  public Snake() {
-    Coordinate coor = new Coordinate(10, 10);
-    head = new Head(coor);
-    body = new Body(head);
-    bodies.add(body);
-  }
+    public Snake() {
+        Coordinate coor = new Coordinate(10, 10);
+        head = new Head(coor);
+        body = new Body(head);
+        bodies.add(body);
+    }
 
     public char directionOfHead() {
         return 0;
