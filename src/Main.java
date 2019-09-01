@@ -7,9 +7,8 @@ public class Main extends Snake {
 
         //Create frame
         JFrame frame = new JFrame("Snake");
-        frame.setSize(450, 625);
+        frame.setSize(700, 625);
         frame.setVisible(true);
-        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create a panel for buttons
