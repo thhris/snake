@@ -2,12 +2,19 @@ import java.util.Vector;
 
 public class CoreMechanics {
 
-  public Board board;
+  public static Board board;
 
   public Snake snake;
 
-    public Vector  myBoard;
-    public Vector  mySnake;
+  public void initialiseGame() {
+    board = Board.getInstance();
+    board.initialiseTiles();
+    board.updateBoard();
+  }
+
+  public void sendBoard(){
+
+  }
 
   public void randomiseSnakeStart() {
   }
@@ -18,7 +25,8 @@ public class CoreMechanics {
   public void gameOver() {
   }
 
-  public void initialiseGame() {
+  public static Board getBoard() {
+    return board;
   }
 
   public void pauseGame() {

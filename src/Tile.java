@@ -2,15 +2,24 @@ import java.awt.*;
 
 public class Tile {
 
-  public Color colour;
+  private Color colour;
 
-  public Coordinate position;
+  private Coordinate position;
 
-  public SnakePart snakePart;
+  private SnakePart snakePart;
 
-  public Point point;
+  private Point point;
 
-  public void newOperation() {
+  public Tile() {
+
+  }
+
+  public Color getColour() {
+    return colour;
+  }
+
+  public void setColour(Color colour) {
+    this.colour = colour;
   }
 
   public void hasSnake() {
@@ -18,8 +27,4 @@ public class Tile {
 
   public void hasPoint() {
   }
-
-  public Tile() {
-  }
-
 }
