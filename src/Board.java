@@ -11,6 +11,13 @@ public class Board {
         initialiseTilesPainting();
     }
 
+    public static Board getInstance(){
+        if(board == null)
+            board = new Board();
+
+        return board;
+    }
+
     // Initialises the tiles in the array
     public void initialiseTiles() {
         tiles = new Tile[21][21];
@@ -36,13 +43,6 @@ public class Board {
 
     public Tile[][] getTiles(){
         return tiles;
-    }
-
-    public static Board getInstance(){
-        if(board == null)
-            board = new Board();
-
-        return board;
     }
 
     public void clearBoard() {
