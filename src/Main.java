@@ -3,13 +3,16 @@ import java.awt.*;
 
 public class Main {
     private static View view;
+    private static CoreMechanics core;
 
     public static void main(String[] args) {
-        createAndInitView();
+        // initialises singleton view class
+        view = View.getView();
+
+        core = new CoreMechanics();
+        core.initialiseGame();
     }
 
-    private static void createAndInitView(){
-        view = View.getView();
-        view.init();
-    }
+
+
 }

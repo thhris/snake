@@ -9,7 +9,7 @@ public class Tile {
     private GameObject object;
 
     public Tile() {
-
+        setColour(Color.BLACK);
     }
 
     public Color getColour() {
@@ -42,11 +42,15 @@ public class Tile {
             throw new NullPointerException();
 
         this.object = object;
-        setColour(object.colour);
+        setColour(object.getColour());
     }
 
     public void removeObject() {
         this.object = null;
         setColour(Color.GRAY);
+    }
+
+    public void setPosition(int x, int y) {
+        position = new Coordinate(x, y);
     }
 }

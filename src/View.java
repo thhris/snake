@@ -5,7 +5,7 @@ public class View extends JPanel {
     public boolean pause;
     public static long score;
     public static int level;
-    private Tile[][] tiles;
+    private static Board board;
 
     private static View view;
 
@@ -58,16 +58,17 @@ public class View extends JPanel {
         resetBut.setForeground(Color.WHITE);
 
         frame.add(this);
-        tiles = Board.getInstance().getTiles();
+        board = Board.getInstance();
     }
 
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         // Paint the grid
         g.fillRect(0, 0, 28 * 21, 28 * 21);
         for (int i = 0; i <= 20; i++) {
             for (int j = 0; j <= 20; j++) {
-                g.setColor(tiles[i][j].getColour());
+                g.setColor(board.getTile(i, j).getColour());
                 g.fillRect(28 * i, 28 * j, 25, 25);
             }
         }

@@ -1,6 +1,7 @@
 public class CoreMechanics {
 
-  public static Board board;
+  private static Board board;
+  private static final Coordinate START_COORDS = new Coordinate(10, 10);
 
   public Snake snake;
 
@@ -8,13 +9,18 @@ public class CoreMechanics {
     board = Board.getInstance();
     board.initialiseTiles();
 
+    snake = new Snake(START_COORDS);
+    snake.putSnakeOnTile();
+
+
   }
 
   public void sendBoard(){
 
   }
 
-  public void randomiseSnakeStart() {
+  public void initialiseSnakeStart() {
+
   }
 
   public void randomisePointGeneration() {

@@ -3,41 +3,70 @@ import java.util.LinkedList;
 public class Snake {
 
     private Head head;
-    private Body body;
-    public LinkedList<Body> bodies;
+    private LinkedList<Body> bodies;
 
-    public Snake() {
-        Coordinate coor = new Coordinate(10, 10);
-        head = new Head(coor);
-        body = new Body(head);
-        bodies.add(body);
+    public Snake(Coordinate start) {
+        head = new Head(start);
+        bodies = new LinkedList<>();
+        bodies.add(new Body(head));
+        bodies.add(new Body(head));
     }
+
 
     public char directionOfHead() {
         return 0;
     }
 
+
     public boolean isAlive() {
-        if (hasCollided() == true) {
-            return false;
-        } else
-            return true;
+        return !hasCollided();
     }
 
+    // collision detection
     public boolean hasCollided() {
         for (Body body : bodies) {
-            if (head.position == body.position) {
+            if (head.getPosition() == body.getPosition()) {
                 return true;
             }
         }
         return false;
     }
 
+    // creates new body and appends it to snake
     public void addBody() {
-        bodies.add(body);
+        bodies.add(new Body(head));
     }
 
+    // returns length of body
     public int lengthOfBody() {
         return bodies.size();
+    }
+
+    // returns the head of the snake
+    public Head getHead(){
+        return head;
+    }
+
+    // returns all the bodies of the snake in a linkedlist
+    public LinkedList<Body> getBodies(){
+        return bodies;
+    }
+
+    // returns a body at the specified index
+    public Body getBody(int index){
+        return bodies.get(index);
+    }
+
+    // puts snake on the tiles
+    public void putSnakeOnTile(){
+        int xHead = getHead().getPosition().getX();
+        int yHead = getHead().getPosition().getY();
+
+        Board.getInstance().getTiles()[xHead][yHead].setObject(getHead());
+
+        int xBody = getBody(0).getPosition().getX();
+        int yBody = getBody(0).getPosition().getY();
+
+        Board.getInstance().getTile(xBody,yBody).setObject(getBody(0));
     }
 }

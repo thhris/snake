@@ -6,10 +6,6 @@ public class Point extends GameObject{
     setColour(Color.YELLOW);
   }
 
-  private void setColour(Color colour){
-    this.colour = colour;
-  }
-
   public void destroy() {
 
   }

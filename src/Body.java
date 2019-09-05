@@ -2,13 +2,17 @@ import java.awt.*;
 
 public class Body extends SnakePart {
 
-    public Body(Head head) {
-        position = head.position;
+    private SnakePart link;
+
+    // Create starting position for this body of snake
+    public Body(SnakePart next) {
+        setNextLink(next);
         setColour(Color.BLUE);
+        setPosition(link.getPosition().getX() + 1, link.getPosition().getY());
     }
 
-    public void setColour(Color col) {
-        colour = col;
+    // sets this body to be linked to next body/head
+    public void setNextLink(SnakePart next){
+        link = next;
     }
-
 }

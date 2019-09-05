@@ -19,11 +19,13 @@ public class Board {
     }
 
     // Initialises the tiles in the array
+    // and indexes them
     public void initialiseTiles() {
         tiles = new Tile[21][21];
         for (int i = 0; i <= 20; i++) {
             for (int j = 0; j <= 20; j++) {
                 tiles[i][j] = new Tile();
+                tiles[i][j].setPosition(i, j);
             }
         }
     }
@@ -45,6 +47,10 @@ public class Board {
         return tiles;
     }
 
+    public Tile getTile(int x, int y){
+        return tiles[x][y];
+    }
+
     public void clearBoard() {
         for (int i = 1; i <= 19; i++) {
             for (int j = 1; j <= 19; j++) {
@@ -56,8 +62,9 @@ public class Board {
     public void updateBoard() {
         for (int i = 1; i <= 19; i++) {
             for (int j = 1; j <= 19; j++) {
-                // TODO: might be removed
+                tiles[i][j].setColour(tiles[i][j].getObject().getColour());
             }
         }
     }
+
 }
