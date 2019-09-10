@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Head extends SnakePart {
 
-    public char direction;
+    private char direction;
 
     //Create starting position for head of snake
     public Head(Coordinate startPosition) {
@@ -11,4 +11,7 @@ public class Head extends SnakePart {
         setColour(Color.RED);
     }
 
+    public char getDirection() {
+        return direction;
+    }
 }

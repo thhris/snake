@@ -1,5 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     private static View view;
@@ -12,7 +10,4 @@ public class Main {
         core = new CoreMechanics();
         core.initialiseGame();
     }
-
-
-
 }

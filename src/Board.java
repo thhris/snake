@@ -74,12 +74,9 @@ public class Board {
         tile.setObject(object);
     }
 
-    public void placeSnake(SnakePart part){
-        SnakePart temp = part;
-        placeObjectOnTile(temp);
-        while(temp.getNext() != null){
-            temp = temp.getNext();
-            placeObjectOnTile(temp);
+    public void placeSnake(Snake snake){
+        for (SnakePart part : snake){
+            placeObjectOnTile(part);
         }
     }
 }

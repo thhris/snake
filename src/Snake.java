@@ -1,11 +1,11 @@
 import java.util.Iterator;
 
 // LinkedList implementation of SnakePart
-public class Snake implements SnakeList {
+public class Snake implements SnakeList, Iterable<SnakePart> {
 
     private SnakePart head;
     private SnakePart body;
-    // private int size; todo: replace length() with adder?
+    // private int size; todo: replace size() with adder?
 
     public Snake(Coordinate start) {
         head = body = new Head(start);
@@ -18,16 +18,14 @@ public class Snake implements SnakeList {
         body = new Body(body);
     }
 
-    // returns length of snake
+    // returns length of snake (including head)
     @Override
     public int size() {
         int count = 0;
-        SnakePart temp = body;
 
-        do {
-            temp = temp.getNext();
+        for(SnakePart part : this){
             count++;
-        } while (temp.getNext() != null);
+        }
 
         return count;
     }
@@ -52,8 +50,23 @@ public class Snake implements SnakeList {
         return new Body(null);
     }
 
-    public Iterator iterator() {
-        // TODO: plan to implement?
-        return null; // todo
+    // allows Snake to be iterated
+    // with a for-each loop
+    @Override
+    public Iterator<SnakePart> iterator() {
+        return new Iterator<SnakePart>() {
+            SnakePart temp = new Body(body);
+
+            @Override
+            public boolean hasNext() {
+                return temp.getNext() != null;
+            }
+
+            @Override
+            public SnakePart next() {
+                temp = temp.getNext();
+                return temp;
+            }
+        };
     }
 }
