@@ -6,9 +6,10 @@ public class Board {
 
     private Tile[][] tiles;
 
+    // Singleton implementation
     private Board() {
-        initialiseTiles();
-        initialiseTilesPainting();
+        initialTileIndex();
+        initialTilePaint();
     }
 
     public static Board getInstance(){
@@ -18,9 +19,7 @@ public class Board {
         return board;
     }
 
-    // Initialises the tiles in the array
-    // and indexes them
-    public void initialiseTiles() {
+    public void initialTileIndex() {
         tiles = new Tile[21][21];
         for (int i = 0; i <= 20; i++) {
             for (int j = 0; j <= 20; j++) {
@@ -30,8 +29,7 @@ public class Board {
         }
     }
 
-    // Paints the tiles
-    public void initialiseTilesPainting(){
+    public void initialTilePaint(){
         for (int i = 0; i <= 20; i++) {
             for (int j = 0; j <= 20; j++) {
                 if (i == 0 || j ==0 || i == 20 || j == 20) {//make a gray border around the grid
@@ -51,6 +49,10 @@ public class Board {
         return tiles[x][y];
     }
 
+    public Tile getTile(Coordinate position){
+        return tiles[position.getX()][position.getY()];
+    }
+
     public void clearBoard() {
         for (int i = 1; i <= 19; i++) {
             for (int j = 1; j <= 19; j++) {
@@ -67,4 +69,8 @@ public class Board {
         }
     }
 
+    public void placeObjectOnTile(GameObject object){
+        Tile tile = getTile(object.getPosition());
+        tile.setObject(object);
+    }
 }

@@ -9,7 +9,7 @@ public class Snake {
         head = new Head(start);
         bodies = new LinkedList<>();
         bodies.add(new Body(head));
-        bodies.add(new Body(head));
+        bodies.add(new Body(bodies.get(0))); //TODO
     }
 
 
@@ -58,7 +58,7 @@ public class Snake {
     }
 
     // puts snake on the tiles
-    public void putSnakeOnTile(){
+    public void putSnakeOnTile(){ //TODO
         int xHead = getHead().getPosition().getX();
         int yHead = getHead().getPosition().getY();
 
@@ -68,5 +68,10 @@ public class Snake {
         int yBody = getBody(0).getPosition().getY();
 
         Board.getInstance().getTile(xBody,yBody).setObject(getBody(0));
+
+        int xBody2 = getBody(1).getPosition().getX();
+        int yBody2 = getBody(1).getPosition().getY();
+
+        Board.getInstance().getTile(xBody2,yBody2).setObject(getBody(1));
     }
 }
