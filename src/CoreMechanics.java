@@ -9,9 +9,9 @@ public class CoreMechanics {
 
     public void initialiseGame() {
         board = Board.getInstance();
-
         snake = new Snake(START_COORDS);
-        snake.putSnakeOnTile();
+
+        board.placeSnake(snake.getSnake());
 
         randomisePointGeneration();
     }

@@ -1,77 +1,59 @@
-import java.util.LinkedList;
+import java.util.Iterator;
 
-public class Snake {
+// LinkedList implementation of SnakePart
+public class Snake implements SnakeList {
 
-    private Head head;
-    private LinkedList<Body> bodies;
+    private SnakePart head;
+    private SnakePart body;
+    // private int size; todo: replace length() with adder?
 
     public Snake(Coordinate start) {
-        head = new Head(start);
-        bodies = new LinkedList<>();
-        bodies.add(new Body(head));
-        bodies.add(new Body(bodies.get(0))); //TODO
+        head = body = new Head(start);
+        addBody();
+        addBody();
     }
 
-
-    public char directionOfHead() {
-        return 0;
-    }
-
-
-    public boolean isAlive() {
-        return !hasCollided();
-    }
-
-    // collision detection
-    public boolean hasCollided() {
-        for (Body body : bodies) {
-            if (head.getPosition() == body.getPosition()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // creates new body and appends it to snake
+    @Override
     public void addBody() {
-        bodies.add(new Body(head));
+        body = new Body(body);
     }
 
-    // returns length of body
-    public int lengthOfBody() {
-        return bodies.size();
+    // returns length of snake
+    @Override
+    public int size() {
+        int count = 0;
+        SnakePart temp = body;
+
+        do {
+            temp = temp.getNext();
+            count++;
+        } while (temp.getNext() != null);
+
+        return count;
     }
 
     // returns the head of the snake
-    public Head getHead(){
-        return head;
+    @Override
+    public Head getHead() {
+        return (Head) head;
     }
 
-    // returns all the bodies of the snake in a linkedlist
-    public LinkedList<Body> getBodies(){
-        return bodies;
+    // returns back of snake, which is linked to head
+    @Override
+    public SnakePart getSnake() {
+        return body;
     }
 
-    // returns a body at the specified index
-    public Body getBody(int index){
-        return bodies.get(index);
+    // returns body at specified index
+    // starting from back
+    @Override
+    public Body getBody(int index) {
+        // TODO: implement
+        return new Body(null);
     }
 
-    // puts snake on the tiles
-    public void putSnakeOnTile(){ //TODO
-        int xHead = getHead().getPosition().getX();
-        int yHead = getHead().getPosition().getY();
-
-        Board.getInstance().getTiles()[xHead][yHead].setObject(getHead());
-
-        int xBody = getBody(0).getPosition().getX();
-        int yBody = getBody(0).getPosition().getY();
-
-        Board.getInstance().getTile(xBody,yBody).setObject(getBody(0));
-
-        int xBody2 = getBody(1).getPosition().getX();
-        int yBody2 = getBody(1).getPosition().getY();
-
-        Board.getInstance().getTile(xBody2,yBody2).setObject(getBody(1));
+    public Iterator iterator() {
+        // TODO: plan to implement?
+        return null; // todo
     }
 }
