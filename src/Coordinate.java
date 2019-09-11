@@ -24,4 +24,9 @@ public class Coordinate {
     public void setY(int y) {
         this.y = y;
     }
+
+    public void add(Coordinate other){
+        setX(x + other.getX());
+        setY(y + other.getY());
+    }
 }
